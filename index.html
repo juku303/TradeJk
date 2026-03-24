@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grid Bot Interface</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+            background: #444;
+        }
+        .dashboard, .chart, .orders, .settings {
+            padding: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is the index.html file.</p>
+    <div class="header">
+        <h1>Grid Bot Interface</h1>
+        <div id="telegram-button"></div>
+    </div>
+    <div class="dashboard">
+        <h2>Dashboard</h2>
+        <div id="dashboard-content"></div>
+    </div>
+    <div class="chart">
+        <h2>Chart</h2>
+        <canvas id="chart"></canvas>
+    </div>
+    <div class="orders">
+        <h2>Orders</h2>
+        <div id="orders-content"></div>
+    </div>
+    <div class="settings">
+        <h2>Settings</h2>
+        <div id="settings-content"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Telegram Web App
+        window.onload = function() {
+            const tg = window.Telegram.WebApp;
+            tg.expand();
+            document.getElementById('telegram-button').innerHTML = '<button onclick="tg.sendData(\"hello\")">Start Bot</button>';
+        };
+    </script>
 </body>
 </html>
